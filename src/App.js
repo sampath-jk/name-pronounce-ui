@@ -29,7 +29,7 @@ const dispatch = useDispatch();
           </h2>
           
           <h2  className="navbar-brand">
-            AI Titans - Hackothan 2022
+            AI Titans - Hackathon 2022
           </h2>
           
           {user.loginSuccess ? (

@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import  useReducer  from './features/user';
 
-// if (process.env.NODE_ENV === 'development') {
-//   const { worker } = require('./mocks/browser')
-//   worker.start()
-// }
+if (process.env.NODE_ENV === 'development') {
+  const { worker } = require('./mocks/browser')
+  worker.start()
+}
 const store = configureStore({
   reducer:{
     user: useReducer
