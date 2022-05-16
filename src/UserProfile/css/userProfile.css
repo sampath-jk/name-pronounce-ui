@@ -1,0 +1,25 @@
+.profile_avatar{
+    float:"left";
+    display:"inline";
+    margin-top: 20px;
+
+}
+
+.profile_details{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.record_panel{
+    float: right;
+    display: inline;
+}
+.form_panel{
+    float:left;
+    padding-right: 100px;
+    margin-right: 0px;
+}
+.auto_search{
+    padding-right: 100px;
+    margin-right: 0px;
+}
