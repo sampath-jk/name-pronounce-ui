@@ -33,6 +33,8 @@ export class CustomPronounce extends React.Component {
             enableRecording: false,
             defaultStopFlag: true
         }
+
+        this.timerRef=React.createRef();
     }
 
     async componentDidMount() {
@@ -120,15 +122,27 @@ export class CustomPronounce extends React.Component {
         e.preventDefault();
         if (this.state.mediaStream) {
 
-            this.state.mediaStream.start(3000);
+            this.state.mediaStream.start(8000);
             this.setState({ status: "Recording..." });
+            this.timerRef.current = setTimeout(this.handleAutoStopRecording, 6000);
         }
+    }
+
+    handleAutoStopRecording = () => {
+        this.state.mediaStream.stop();
+        this.state.mediaStream.stream.stop();
+        this.setState({ status: "Recording..." });
+        clearTimeout(this.timerRef.current);
+        this.timerRef.current = null;
     }
     stopRecording = (e) => {
         e.preventDefault();
+        clearTimeout(this.timerRef.current);
+        this.timerRef.current = null;
         if (this.state.mediaStream) {
 
             this.state.mediaStream.stop();
+            this.state.mediaStream.stream.stop();
             this.setState({ status: "Recording Stopped", enableMsg: false, defaultStopFlag: false });
         }
 
@@ -314,12 +328,12 @@ export class CustomPronounce extends React.Component {
                             <h6 className="col-4">Original audio:</h6>
 
 
-                            <audio className="col" src={this.state.originalAudio} controls />
+                            <audio className="col" src={this.state.originalAudio} controls autoPlay />
                         </div><br></br>
                         <div className="row">
                             <h6 className="col-4">Synthesized audio:</h6>
 
-                            <audio className="col" src={this.props.aiVoice} controls autoPlay />
+                            <audio className="col" src={this.props.aiVoice} controls  />
 
                         </div>
                         <div className="row">
