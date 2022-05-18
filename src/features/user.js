@@ -44,7 +44,7 @@ export const userSlice = createSlice({
 
                     return {
                         ...state,
-                        authToken: action.payload.payload.resp.data.token,
+                        authToken: "Bearer "+action.payload.payload.resp.data.token,
                         employeeId: action.payload.payload.resp.data.employeeId,
                         loginSuccess: true,
                         showErrorMsg: '',
@@ -83,7 +83,6 @@ export const userSlice = createSlice({
                         address: action.payload.payload.resp.data.address,
                         city: action.payload.payload.resp.data.city,
                         telephone: action.payload.payload.resp.data.telephone,
-                        pronounceType: action.payload.payload.resp.data.pronounceType,
                         loggedInUserRoles: state.loggedInUser == action.payload.payload.resp.data.employeeId ? [...action.payload.payload.resp.data.roles] : [...state.loggedInUserRoles],
                         loginSuccess: true,
                         successMSG: ''
@@ -115,7 +114,7 @@ export const userSlice = createSlice({
                 case "SUBMIT_SPEACH_DETAILS_SUCCESS":
                     return {
                         ...state,
-                        successMSG: action.payload.payload.resp.message,
+                        successMSG: "Updated Successfully",
                         customFlag: false
                     };
                 case "USER_NAME_PRONOUNCE_SUCCESS":
@@ -123,7 +122,7 @@ export const userSlice = createSlice({
                         ...state,
                         nameAudio: action.payload.payload.resp.data.audio,
                         nameAudioErrorMsg: '',
-                        preferredName: action.payload.payload.resp.preferredName ? action.payload.payload.resp.preferredName : state.preferredName,
+                        preferredName: action.payload.payload.resp.preferredName,
                         successMSG: action.payload.payload.resp.updateFlag ? "Updated Successfully" : '',
                         playAudio: true
                     };
@@ -152,7 +151,6 @@ export const userSlice = createSlice({
                         ...state,
                         firstName: action.payload.payload.resp[0].firstName,
                         lastName: action.payload.payload.resp[0].lastName,
-                        listofRoles: action.payload.payload.resp[0].roles ? [...action.payload.payload.resp[0].roles] : [],
                         employeeId: action.payload.payload.resp[0].employeeId,
                         email: action.payload.payload.resp[0].email,
                         preferredName: action.payload.payload.resp[0].preferredName,
@@ -160,7 +158,6 @@ export const userSlice = createSlice({
                         address: action.payload.payload.resp[0].address,
                         city: action.payload.payload.resp[0].city,
                         telephone: action.payload.payload.resp[0].telephone,
-                        pronounceType: action.payload.payload.resp[0].pronounceType,
                         successMSG: ''
 
 

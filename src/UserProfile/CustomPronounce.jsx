@@ -71,7 +71,7 @@ export class CustomPronounce extends React.Component {
     }
 
     handleAudioTypechange = (e) => {
-        this.setState({ speed: e.target.value, buttonEnable: true });
+        this.setState({ audioType: e.target.value, buttonEnable: true });
 
     }
 
@@ -83,9 +83,10 @@ export class CustomPronounce extends React.Component {
         this.setState({ region: e.target.value, enableMsg: true, enableRecording: true });
     }
     handleSubmit = () => {
+        const audioType = this.state.audioType;
         this.setState({ submit: true }, this.props.submitUserPreference({
-            empId: this.props.employeeId,
-            audioFile: this.state.audioType == 'original' ? this.state.originalAudio : this.props.aiVoice
+            employeeId: this.props.employeeId,
+            audio: audioType == 'original' ? this.props.userVoice : this.props.aiVoice
         },this.props.authToken));
         this.props.handleRecordEdit();
     }
@@ -284,7 +285,7 @@ export class CustomPronounce extends React.Component {
 
                         <br></br>
                         {this.state.enableMsg && <h6><b>Record your name in the right side panel</b></h6>}
-                        {(this.state.enableAudioSeletion) && <select className="form-select" aria-label="Default select example" onChange={this.handleAudioTypechange} required>
+                        {(this.state.enableAudioSeletion) && <select className="form-select" aria-label="Default select example" onChange={this.handleAudioTypechange}>
                             <option selected>Select Audio Type</option>
                             <option value="original">Original</option>
                             <option value="synthesized">Synthesized</option>

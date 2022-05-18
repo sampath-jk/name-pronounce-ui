@@ -189,7 +189,7 @@ export function getAllEmployee(header){
     return dispatch => {
         const config = {
             url: COMMON_METHODS.serviceURLs().getAllEmployees,
-            methodType: "POST",
+            methodType: "GET",
             dataToSend: {},
             auth: header
         };

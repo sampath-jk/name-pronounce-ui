@@ -24,10 +24,10 @@ const COMMON_METHODS = {
             "authLoginDetails":"https://name-pronunciation-service.azurewebsites.net/authenticate",
             "getEmployeeDetails":"https://name-pronunciation-service.azurewebsites.net/user/getEmployee",
             "getSpeachDetails":"https://name-pronunciation-service.azurewebsites.net/pronounceName",
-            "getConvertedSpeachDetails": "https://name-pronunciation-service.azurewebsites.net/customPronounceName",
-            "submitSpeachDetails":"https://name-pronunciation-service.azurewebsites.net/updateAudio",
+            "getConvertedSpeachDetails": "https://name-pronunciation-service.azurewebsites.net/customPronounce",
+            "submitSpeachDetails":"https://name-pronunciation-service.azurewebsites.net/savePronunciation",
             "getAllEmployees":"https://name-pronunciation-service.azurewebsites.net/user/getAllEmployees",
-            "resetAudio":"https://name-pronunciation-service.azurewebsites.net/resetAudio"
+            "resetAudio":"https://name-pronunciation-service.azurewebsites.net/resetPronunciation"
         }
         return urls;
     }

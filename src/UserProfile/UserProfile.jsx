@@ -61,9 +61,9 @@ export class UserProfile extends Component {
         const fullname = this.props.firstName + " " + this.props.lastName;
         this.setState({playAudio:true},this.props.fetchNamePronunce({
             name: this.props.preferredName ? '' : fullname,
-            "preferredName": this.props.preferredName,
-            "country": this.props.country,
-            "employeeId": this.props.employeeId
+            preferredName: this.props.preferredName,
+            country: this.props.country,
+            employeeId: this.props.employeeId
         }, this.props.authToken,false));
     }
     handleRecordEdit = () => {
@@ -173,11 +173,11 @@ export class UserProfile extends Component {
                             <img src={volume} className="img-thumbnail" alt="Listen pronunciation" title="Click to listen pronunciation" /></Link>
 
                     </span>
-                        {(this.props.loggedInUserRoles.includes("admin") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
+                        {(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
                             <Link to='#' onClick={this.handleRecordEdit}>
                                 <img src={record} className="img-thumbnail" alt="Record your custom pronunciation" title="Click to record your custom pronunciation" /></Link>
                         </span>}
-                        {(this.props.loggedInUserRoles.includes("admin") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
+                        {(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
                             <Link to='#' onClick={this.handleRESTEdit}>
                             {/* <img src={reset} alt="Bootstrap" width="32" height="32"/> */}
                                 <img src={reset} className="img-thumbnail" alt="Record your custom pronunciation" title="Click to record your custom pronunciation" width="32" height="32"/></Link>
@@ -189,7 +189,7 @@ export class UserProfile extends Component {
                         <h6 className="col-3"><span> <b>Employee ID</b></span></h6> : <h6 className="col-3"> {this.props.employeeId}</h6>
                     </div>
                     {!this.state.preferredNameFlag && <div className="row">
-                        <h6 className="col-3"><span> <b>Preffered Name</b></span></h6> : <h6 className="col-3"> {this.props.preferredName}</h6>{(this.props.loggedInUserRoles.includes("admin") || this.props.employeeId == this.props.loggedInUser) && <span className="col material-icons">
+                        <h6 className="col-3"><span> <b>Preffered Name</b></span></h6> : <h6 className="col-3"> {this.props.preferredName}</h6>{(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="col material-icons">
                             <Link to='#' onClick={this.handlePrefferedNameEdit}>
                                 <img src={edit} className="img-thumbnail" alt="Listen pronunciation" title="Click to listen pronunciation" /></Link>
 
@@ -203,7 +203,7 @@ export class UserProfile extends Component {
                         </span>
                     </div>}
                     {/* {!this.state.pronounceTypeFlag && <div className="row">
-                        <h6 className="col-3"><span> <b>Name pronunciation type</b></span></h6> : <h6 className="col-3"> {this.props.pronounceType == 's' ? "Standard Pronunciation" : "Custom Pronunciation"}</h6>{(this.props.listofRoles.includes("admin") || this.props.employeeId == this.props.loggedInUser) && this.props.pronounceType !== 's' && <span className="col material-icons">
+                        <h6 className="col-3"><span> <b>Name pronunciation type</b></span></h6> : <h6 className="col-3"> {this.props.pronounceType == 's' ? "Standard Pronunciation" : "Custom Pronunciation"}</h6>{(this.props.listofRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && this.props.pronounceType !== 's' && <span className="col material-icons">
                             <Link to='#' onClick={this.handlePronounceTypeEdit}>
                                 <img src={edit} className="img-thumbnail" alt="Listen pronunciation" title="Click to listen pronunciation" /></Link>
 
