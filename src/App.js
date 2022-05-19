@@ -25,22 +25,20 @@ const dispatch = useDispatch();
       <div>
         <nav className="navbar navbar-expand header">
         <h2 className="wells_header">
-            WELLS FARGO
+            Name Pronunciation Tool
           </h2>
           
           <h2  className="navbar-brand">
             AI Titans - Hackathon 2022
           </h2>
-          
+          {user.loginSuccess && <Link to={"/namePronounce/profile"} className="nav-header">
+                  {user.loggedInUser}
+                </Link>}&nbsp;&nbsp;&nbsp;
           {user.loginSuccess ? (
             <div className="navbar-nav ml-auto">
+              
               <li className="nav-item">
-                <Link to={"/namePronounce/profile"} className="nav-link nav-header">
-                  {user.loggedInUser}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/namePronounce/login"} className="nav-link" onClick={() => dispatch(userLogout())}>
+                <Link to={"/namePronounce/login"} className="btn btn-primary" onClick={() => dispatch(userLogout())}>
                   LogOut
                 </Link>
               </li>
@@ -48,7 +46,7 @@ const dispatch = useDispatch();
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/namePronounce/login"} className="nav-header nav-link" >
+                <Link to={"/namePronounce/login"} className="btn btn-primary" >
                   Login
                 </Link>
               </li>

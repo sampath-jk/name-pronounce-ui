@@ -75,7 +75,7 @@ export class Login extends React.Component {
       {!this.props.user.loginSuccess ?
       <React.Fragment>
       <div style={{ display: 'inline-block', width: 650, padding: 30 }}>
-        <h4>WELLS FARGO Speech Synthesis technology</h4>
+        <h4>Name Pronunciation Speech Synthesis Technology</h4>
         <Carousel>
           <Carousel.Item interval={1500}>
             <img

@@ -13,11 +13,14 @@
 .record_panel{
     float: right;
     display: inline;
+    padding-top: 60px;
 }
 .form_panel{
     float:left;
     padding-right: 100px;
+    padding-top: 60px;
     margin-right: 0px;
+    margin-top: 50px;
 }
 .auto_search{
     padding-right: 100px;

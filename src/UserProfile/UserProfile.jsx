@@ -152,7 +152,7 @@ export class UserProfile extends Component {
             {!this.state.customFlag && <div>
                 <div style={{ float: "right", display: "inline-flex" }}>
                     <div>
-                 <img src={search} className="img-thumbnail" alt="search" /> 
+                 <img src={search} className="img-thumbnail" alt="search" /> &nbsp;
                  </div>
                  <div >
                 <AutoSuggestEmpSearch />
@@ -168,15 +168,15 @@ export class UserProfile extends Component {
                 </div>
                 <div className="profile_details">
                     <div></div>
-                    <h1>{this.props.firstName}  {this.props.lastName}<span className="material-icons">
+                    <h1>{this.props.firstName}  {this.props.lastName} &nbsp;&nbsp; <span className="material-icons">
                         <Link to='#' onClick={this.handleSpeach}>
                             <img src={volume} className="img-thumbnail" alt="Listen pronunciation" title="Click to listen pronunciation" /></Link>
 
-                    </span>
+                    </span>&nbsp;
                         {(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
                             <Link to='#' onClick={this.handleRecordEdit}>
                                 <img src={record} className="img-thumbnail" alt="Record your custom pronunciation" title="Click to record your custom pronunciation" /></Link>
-                        </span>}
+                        </span>}&nbsp;
                         {(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="material-icons">
                             <Link to='#' onClick={this.handleRESTEdit}>
                             {/* <img src={reset} alt="Bootstrap" width="32" height="32"/> */}
@@ -189,7 +189,7 @@ export class UserProfile extends Component {
                         <h6 className="col-3"><span> <b>Employee ID</b></span></h6> : <h6 className="col-3"> {this.props.employeeId}</h6>
                     </div>
                     {!this.state.preferredNameFlag && <div className="row">
-                        <h6 className="col-3"><span> <b>Preffered Name</b></span></h6> : <h6 className="col-3"> {this.props.preferredName}</h6>{(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="col material-icons">
+                        <h6 className="col-3"><span> <b>Preferred Name</b></span></h6> : <h6 className="col-3"> {this.props.preferredName}</h6>{(this.props.loggedInUserRoles.includes("ROLE_ADMIN") || this.props.employeeId == this.props.loggedInUser) && <span className="col material-icons">
                             <Link to='#' onClick={this.handlePrefferedNameEdit}>
                                 <img src={edit} className="img-thumbnail" alt="Listen pronunciation" title="Click to listen pronunciation" /></Link>
 
