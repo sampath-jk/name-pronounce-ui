@@ -8,7 +8,7 @@ import CustomPronounce from "./UserProfile/CustomPronounce";
 import { IntlProvider } from "react-intl";
  import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from "react-redux";
-import {userLogout} from './services/action/loginActions';
+import {userLogout,getEmployeeDetails} from './services/action/loginActions';
 
  //addLocaleData(en);
 function App ()  {
@@ -31,14 +31,14 @@ const dispatch = useDispatch();
           <h2  className="navbar-brand">
             AI Titans - Hackathon 2022
           </h2>
-          {user.loginSuccess && <Link to={"/namePronounce/profile"} className="nav-header">
+          {user.loginSuccess && <Link to={"/namePronounce/profile"} className="nav-header" onClick={() => dispatch(getEmployeeDetails(user.loggedInUser,user.authToken))}>
                   {user.loggedInUser}
                 </Link>}&nbsp;&nbsp;&nbsp;
           {user.loginSuccess ? (
             <div className="navbar-nav ml-auto">
               
               <li className="nav-item">
-                <Link to={"/namePronounce/login"} className="btn btn-primary" onClick={() => dispatch(userLogout())}>
+                <Link to={"/namePronounce"} className="btn btn-primary" onClick={() => dispatch(userLogout())}>
                   LogOut
                 </Link>
               </li>
